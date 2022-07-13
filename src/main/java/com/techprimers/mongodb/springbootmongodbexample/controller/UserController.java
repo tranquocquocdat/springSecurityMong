@@ -4,8 +4,10 @@ import com.techprimers.mongodb.springbootmongodbexample.document.User;
 import com.techprimers.mongodb.springbootmongodbexample.dto.UserLogin;
 import com.techprimers.mongodb.springbootmongodbexample.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -35,8 +37,12 @@ public class UsersController {
    }
 
    @DeleteMapping("/delete/{userEmail}")
-//   @ResponseBody
    public void deleteUserByEmail(@PathVariable("userEmail") String userEmail){
         usersService.deleteUserByEmail(userEmail);
+   }
+
+   @PutMapping("/update/{UserEmail}")
+   public ResponseEntity<User> updateUserByEmail(@PathVariable("UserEmail") String userEmail, @Valid @RequestBody User userDetail){
+        return usersService.updateUserByEmail(userEmail,userDetail);
    }
 }
