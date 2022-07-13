@@ -11,10 +11,10 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Service
-public class UsersService {
+public class UserService {
     UserRepository userRepository;
     @Autowired
-    public UsersService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

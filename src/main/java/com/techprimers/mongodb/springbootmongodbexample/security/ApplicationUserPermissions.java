@@ -11,4 +11,8 @@ public enum ApplicationUserPermissions {
     ApplicationUserPermissions(String permission) {
         this.permission = permission;
     }
+
+    public String getPermissions() {
+        return permission;
+    }
 }
